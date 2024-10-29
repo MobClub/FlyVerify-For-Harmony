@@ -1,0 +1,17 @@
+{
+  "totalTime": 15817980900,
+  "moduleNum": 0,
+  "taskTime": {},
+  "isIncremental": true,
+  "hasIncremental": false,
+  "isParallel": true,
+  "IS_DAEMON": false,
+  "LOG_LEVEL": "INFO",
+  "IS_HVIGORFILE_TYPE_CHECK": false,
+  "TASK_TIME": {},
+  "BUILD_ID": "202410292001358540",
+  "LOG_MESSAGE": {
+    "BUILD_ID": "202410292001358540",
+    "TIMESTAMP": "1730203311639"
+  }
+}
