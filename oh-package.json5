@@ -1,0 +1,21 @@
+{
+  "modelVersion": "5.0.0",
+  "license": "",
+  "devDependencies": {
+    "@ohos/hypium": "1.0.17",
+    "@ohos/hamock": "1.0.0"
+  },
+  "author": "zzt",
+  "name": "flyverify",
+  "description": "秒验是一款帮助开发者实现一键验证功能的产品，从根源上降低企业验证成本， 有效提高拉新转化率，降低因验证带来的流失率，3秒完成手机号验证。",
+  "main": "",
+  "version": "1.0.6",
+  "dependencies": {
+    "ctaccount": "file:ThirdPartyLibs/EAccountApiHarmonyOS_V1.0.5.har",
+    "cmccssosdk": "file:ThirdPartyLibs/quick_login_harmony_5.9.7.0.har",
+    "unicom_login_harmony_v1.0.0": "file:ThirdPartyLibs/unicom_login_harmony_v1.0.0AR001B0822.har",
+    "@zztsdk/zztcore": "^2024.10.24",
+    "@zztsdk/flyverify": "^1.0.6"
+  },
+  "dynamicDependencies": {}
+}
