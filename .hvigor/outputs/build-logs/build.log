@@ -259,3 +259,280 @@
 [2024-10-29T20:08:52.360] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
 [2024-10-29T20:08:52.362] [DEBUG] debug-file - worker[0] exits with exit code 0.
 [2024-10-29T20:08:52.368] [DEBUG] debug-file - worker[1] exits with exit code 0.
+[2025-05-20T10:57:37.878] [DEBUG] debug-file - java daemon tryConnect failed Error: connect ECONNREFUSED 127.0.0.1:45050
+[2025-05-20T10:57:37.944] [DEBUG] debug-file - java daemon started at port 45050 pid 416
+[2025-05-20T10:57:35.588] [DEBUG] debug-file - env: nodejsVersion=v18.20.1
+[2025-05-20T10:57:35.696] [DEBUG] debug-file - env: daemon=true
+[2025-05-20T10:57:35.591] [DEBUG] debug-file - env: hvigor-config.json5 content = {
+  modelVersion: '5.0.0',
+  dependencies: {},
+  properties: { 'ohos.sign.har': true }
+}
+[2025-05-20T10:57:38.271] [DEBUG] debug-file - session manager: set active socket. socketId=tGvUjBjwou4WA7uEAAAB
+[2025-05-20T10:57:39.453] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-05-20T10:57:39.489] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' }
+}
+[2025-05-20T10:57:39.495] [DEBUG] debug-file - Since current hvigor version 5.17.0 differs from last hvigor version 
+      5.5.1, delete file-cache.json and task-cache.json.
+[2025-05-20T10:57:39.497] [DEBUG] debug-file - Cache service initialization finished in 7 ms 
+[2025-05-20T10:57:39.518] [DEBUG] debug-file - hvigorfile, resolving D:\F\hmproject\demo-secverify-for-harmony\hvigorfile.ts
+[2025-05-20T10:57:51.375] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2025-05-20T10:57:51.376] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2025-05-20T10:57:51.667] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2025-05-20T10:57:51.667] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2025-05-20T10:57:51.668] [DEBUG] debug-file - Product 'default' build option: {}
+[2025-05-20T10:57:51.669] [DEBUG] debug-file - Picking option from product 'debug' with build mode 'debug'.
+[2025-05-20T10:57:51.669] [DEBUG] debug-file - Product 'debug' build option: {}
+[2025-05-20T10:57:51.669] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2025-05-20T10:57:51.675] [DEBUG] debug-file - Product 'default' using build option: {
+  "debuggable": true,
+  "strictMode": {
+    "useNormalizedOHMUrl": true
+  }
+} in this build.
+[2025-05-20T10:57:51.679] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2025-05-20T10:57:51.689] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2025-05-20T10:57:51.807] [DEBUG] debug-file - Local scan or download hmscore sdk components toolchains,ets,native
+[2025-05-20T10:57:51.875] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2025-05-20T10:57:51.996] [DEBUG] debug-file - Sdk init in 313 ms 
+[2025-05-20T10:57:52.025] [DEBUG] debug-file - Project task initialization takes 26 ms 
+[2025-05-20T10:57:52.025] [DEBUG] debug-file - hvigorfile, resolve finished D:\F\hmproject\demo-secverify-for-harmony\hvigorfile.ts
+[2025-05-20T10:57:52.034] [DEBUG] debug-file - hvigorfile, resolving D:\F\hmproject\demo-secverify-for-harmony\entry\hvigorfile.ts
+[2025-05-20T10:57:52.043] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2025-05-20T10:57:52.044] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2025-05-20T10:57:52.061] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2025-05-20T10:57:52.062] [DEBUG] debug-file - Target 'default' config: {}
+[2025-05-20T10:57:52.062] [DEBUG] debug-file - Target 'debug' config: {}
+[2025-05-20T10:57:52.062] [DEBUG] debug-file - Does not get target 'debug'corresponding build option.
+[2025-05-20T10:57:52.063] [DEBUG] debug-file - Using preset build option 'debug'.
+[2025-05-20T10:57:52.063] [DEBUG] debug-file - Target 'ohosTest' config: {}
+[2025-05-20T10:57:52.063] [DEBUG] debug-file - Module 'entry' target 'default' build option: {
+  "debuggable": true,
+  "copyFrom": "default",
+  "strictMode": {
+    "useNormalizedOHMUrl": true
+  }
+}
+[2025-05-20T10:57:52.063] [DEBUG] debug-file - Module 'entry' target 'debug' build option: {
+  "debuggable": true,
+  "copyFrom": "default",
+  "strictMode": {
+    "useNormalizedOHMUrl": true
+  }
+}
+[2025-05-20T10:57:52.063] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option: {
+  "debuggable": true,
+  "strictMode": {
+    "useNormalizedOHMUrl": true
+  }
+}
+[2025-05-20T10:57:52.063] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-05-20T10:57:52.064] [DEBUG] debug-file - Module 'entry' target 'default' using build option: {
+  "debuggable": true,
+  "copyFrom": "default",
+  "strictMode": {
+    "useNormalizedOHMUrl": true
+  }
+} in this build.
+[2025-05-20T10:57:52.075] [DEBUG] debug-file - Module entry task initialization takes 7 ms 
+[2025-05-20T10:57:52.075] [DEBUG] debug-file - hvigorfile, resolve finished D:\F\hmproject\demo-secverify-for-harmony\entry\hvigorfile.ts
+[2025-05-20T10:57:52.111] [DEBUG] debug-file - hvigorfile, resolve hvigorfile dependencies in 32 ms 
+[2025-05-20T10:57:52.112] [DEBUG] debug-file - project has submodules:entry
+[2025-05-20T10:57:52.153] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2025-05-20T10:57:52.163] [DEBUG] debug-file - load to the disk finished
+[2025-05-20T10:57:52.164] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-05-20T10:57:52.227] [DEBUG] debug-file - Module demo-secverify-for-harmony Collected Dependency: D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\ctaccount@j+7wk3g04aeof89ymasqiydm9hxnefdltzeafndloxi=\oh_modules\ctaccount,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\cmccssosdk@htais5r63ai++shrs+hh9gjgw9qhh2ameeeezhfnnta=\oh_modules\cmccssosdk,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\unicom_login_harmony_v1.0.0@+jjgre05et+jvrghyuuckup2usdijjgkev+oq0nn35k=\oh_modules\unicom_login_harmony_v1.0.0,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\@zztsdk+zztcore@2024.10.24\oh_modules\@zztsdk\zztcore,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\@zztsdk+flyverify@1.0.6\oh_modules\@zztsdk\flyverify,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\dljson@8y7fmo8pk++iwzbzxufn+xmuihidjjlrg5qftpjx2tg=\oh_modules\dljson,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\ctaccount@j+7wk3g04aeof89ymasqiydm9hxnefdltzeafndloxi=\oh_modules\ctaccount\src\main\cpp\types\libctaccount,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\unicom_login_harmony_v1.0.0@+jjgre05et+jvrghyuuckup2usdijjgkev+oq0nn35k=\oh_modules\unicom_login_harmony_v1.0.0\src\main\cpp\types\libunicom_login_harmony,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\@yyz116+jsbn@1.0.2\oh_modules\@yyz116\jsbn
+[2025-05-20T10:57:52.227] [DEBUG] debug-file - Module demo-secverify-for-harmony's total dependency: 9
+[2025-05-20T10:57:52.229] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-05-20T10:57:52.236] [DEBUG] debug-file - Module entry Collected Dependency: D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\ctaccount@j+7wk3g04aeof89ymasqiydm9hxnefdltzeafndloxi=\oh_modules\ctaccount,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\cmccssosdk@htais5r63ai++shrs+hh9gjgw9qhh2ameeeezhfnnta=\oh_modules\cmccssosdk,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\unicom_login_harmony_v1.0.0@+jjgre05et+jvrghyuuckup2usdijjgkev+oq0nn35k=\oh_modules\unicom_login_harmony_v1.0.0,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\@zztsdk+zztcore@2024.10.24\oh_modules\@zztsdk\zztcore,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\@zztsdk+flyverify@1.0.6\oh_modules\@zztsdk\flyverify,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\dljson@8y7fmo8pk++iwzbzxufn+xmuihidjjlrg5qftpjx2tg=\oh_modules\dljson,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\ctaccount@j+7wk3g04aeof89ymasqiydm9hxnefdltzeafndloxi=\oh_modules\ctaccount\src\main\cpp\types\libctaccount,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\unicom_login_harmony_v1.0.0@+jjgre05et+jvrghyuuckup2usdijjgkev+oq0nn35k=\oh_modules\unicom_login_harmony_v1.0.0\src\main\cpp\types\libunicom_login_harmony,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\@yyz116+jsbn@1.0.2\oh_modules\@yyz116\jsbn
+[2025-05-20T10:57:52.236] [DEBUG] debug-file - Module entry's total dependency: 9
+[2025-05-20T10:57:52.244] [DEBUG] debug-file - Configuration phase cost:12 s 739 ms 
+[2025-05-20T10:57:52.249] [DEBUG] debug-file - Configuration task cost before running: 12 s 789 ms 
+[2025-05-20T10:57:52.256] [DEBUG] debug-file - Executing task :entry:clean
+[2025-05-20T10:57:52.257] [DEBUG] debug-file - clean: Worker pool is inactive.
+[2025-05-20T10:57:52.262] [DEBUG] debug-file - entry : clean cost memory 0.17108917236328125
+[2025-05-20T10:57:52.262] [DEBUG] debug-file - runTaskFromQueue task cost before running: 12 s 802 ms 
+[2025-05-20T10:57:52.264] [INFO] debug-file - Finished :entry:clean... after 6 ms 
+[2025-05-20T10:57:52.264] [DEBUG] debug-file - Executing task ::clean
+[2025-05-20T10:57:52.264] [DEBUG] debug-file - clean: Worker pool is inactive.
+[2025-05-20T10:57:52.265] [DEBUG] debug-file - demo-secverify-for-harmony : clean cost memory 0.03484344482421875
+[2025-05-20T10:57:52.265] [DEBUG] debug-file - runTaskFromQueue task cost before running: 12 s 805 ms 
+[2025-05-20T10:57:52.266] [INFO] debug-file - Finished ::clean... after 2 ms 
+[2025-05-20T10:57:52.266] [DEBUG] debug-file - Executing task :entry:init
+[2025-05-20T10:57:52.267] [DEBUG] debug-file - entry : init cost memory 0.014068603515625
+[2025-05-20T10:57:52.267] [DEBUG] debug-file - runTaskFromQueue task cost before running: 12 s 807 ms 
+[2025-05-20T10:57:52.267] [INFO] debug-file - Finished :entry:init... after 1 ms 
+[2025-05-20T10:57:52.267] [DEBUG] debug-file - Executing task ::init
+[2025-05-20T10:57:52.267] [DEBUG] debug-file - demo-secverify-for-harmony : init cost memory 0.01291656494140625
+[2025-05-20T10:57:52.267] [DEBUG] debug-file - runTaskFromQueue task cost before running: 12 s 807 ms 
+[2025-05-20T10:57:52.268] [INFO] debug-file - Finished ::init... after 1 ms 
+[2025-05-20T10:57:52.287] [DEBUG] debug-file - Module 'entry' target 'default' using build option: {
+  "debuggable": true,
+  "copyFrom": "default",
+  "strictMode": {
+    "useNormalizedOHMUrl": true
+  }
+} in this build.
+[2025-05-20T10:57:52.294] [DEBUG] debug-file - Module 'entry' target 'debug' using build option: {
+  "debuggable": true,
+  "copyFrom": "default",
+  "strictMode": {
+    "useNormalizedOHMUrl": true
+  }
+} in this build.
+[2025-05-20T10:57:52.301] [DEBUG] debug-file - Module 'entry' target 'ohosTest' using build option: {
+  "debuggable": true,
+  "strictMode": {
+    "useNormalizedOHMUrl": true
+  }
+} in this build.
+[2025-05-20T10:57:52.313] [DEBUG] debug-file - Since there is no instance or instance is terminated, create a new worker pool.
+[2025-05-20T10:57:52.313] [DEBUG] debug-file - Worker pool is initialized with config:  {
+  minPoolNum: 2,
+  maxPoolNum: undefined,
+  maxCoreSize: undefined,
+  cacheCapacity: undefined,
+  cacheTtl: undefined
+}
+[2025-05-20T10:57:52.315] [DEBUG] debug-file - Create  resident worker with id: 0.
+[2025-05-20T10:57:52.319] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-05-20T10:57:52.319] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-05-20T10:57:52.319] [DEBUG] debug-file - Create  resident worker with id: 1.
+[2025-05-20T10:57:52.325] [DEBUG] debug-file - Cleanup worker 0.
+[2025-05-20T10:57:52.326] [DEBUG] debug-file - Worker 0 has been cleaned up.
+[2025-05-20T10:57:52.326] [DEBUG] debug-file - Current idle worker size: 1.
+[2025-05-20T10:57:52.326] [DEBUG] debug-file - Current resident worker size: 2.
+[2025-05-20T10:57:52.326] [DEBUG] debug-file - Cleanup worker 1.
+[2025-05-20T10:57:52.326] [DEBUG] debug-file - Worker 1 has been cleaned up.
+[2025-05-20T10:57:52.327] [DEBUG] debug-file - Current idle worker size: 0.
+[2025-05-20T10:57:52.327] [DEBUG] debug-file - Current resident worker size: 2.
+[2025-05-20T10:57:52.328] [DEBUG] debug-file - hvigor build process will be closed.
+[2025-05-20T10:57:52.359] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-05-20T10:57:52.360] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-05-20T10:57:52.362] [DEBUG] debug-file - worker[0] exits with exit code 0.
+[2025-05-20T10:57:52.363] [DEBUG] debug-file - worker[1] exits with exit code 0.
+[2025-05-20T11:05:08.253] [DEBUG] debug-file - session manager: set active socket. socketId=XGFpNf0Ees8H3mDwAAAD
+[2025-05-20T11:05:08.268] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-05-20T11:05:08.332] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' }
+}
+[2025-05-20T11:05:08.337] [DEBUG] debug-file - Cache service initialization finished in 5 ms 
+[2025-05-20T11:05:08.373] [DEBUG] debug-file - hvigorfile, resolving D:\F\hmproject\demo-secverify-for-harmony\hvigorfile.ts
+[2025-05-20T11:05:08.387] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2025-05-20T11:05:08.387] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2025-05-20T11:05:08.402] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2025-05-20T11:05:08.402] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2025-05-20T11:05:08.402] [DEBUG] debug-file - Product 'default' build option: {}
+[2025-05-20T11:05:08.403] [DEBUG] debug-file - Picking option from product 'debug' with build mode 'debug'.
+[2025-05-20T11:05:08.403] [DEBUG] debug-file - Product 'debug' build option: {}
+[2025-05-20T11:05:08.403] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2025-05-20T11:05:08.407] [DEBUG] debug-file - Product 'default' using build option: {
+  "debuggable": true,
+  "strictMode": {
+    "useNormalizedOHMUrl": true
+  }
+} in this build.
+[2025-05-20T11:05:08.412] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2025-05-20T11:05:08.429] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2025-05-20T11:05:08.476] [DEBUG] debug-file - Sdk init in 63 ms 
+[2025-05-20T11:05:08.509] [DEBUG] debug-file - Project task initialization takes 31 ms 
+[2025-05-20T11:05:08.509] [DEBUG] debug-file - hvigorfile, resolve finished D:\F\hmproject\demo-secverify-for-harmony\hvigorfile.ts
+[2025-05-20T11:05:08.522] [DEBUG] debug-file - hvigorfile, resolving D:\F\hmproject\demo-secverify-for-harmony\entry\hvigorfile.ts
+[2025-05-20T11:05:08.528] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2025-05-20T11:05:08.528] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2025-05-20T11:05:08.541] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2025-05-20T11:05:08.541] [DEBUG] debug-file - Target 'default' config: {}
+[2025-05-20T11:05:08.541] [DEBUG] debug-file - Target 'debug' config: {}
+[2025-05-20T11:05:08.541] [DEBUG] debug-file - Does not get target 'debug'corresponding build option.
+[2025-05-20T11:05:08.541] [DEBUG] debug-file - Using preset build option 'debug'.
+[2025-05-20T11:05:08.541] [DEBUG] debug-file - Target 'ohosTest' config: {}
+[2025-05-20T11:05:08.542] [DEBUG] debug-file - Module 'entry' target 'default' build option: {
+  "debuggable": true,
+  "copyFrom": "default",
+  "strictMode": {
+    "useNormalizedOHMUrl": true
+  }
+}
+[2025-05-20T11:05:08.542] [DEBUG] debug-file - Module 'entry' target 'debug' build option: {
+  "debuggable": true,
+  "copyFrom": "default",
+  "strictMode": {
+    "useNormalizedOHMUrl": true
+  }
+}
+[2025-05-20T11:05:08.542] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option: {
+  "debuggable": true,
+  "strictMode": {
+    "useNormalizedOHMUrl": true
+  }
+}
+[2025-05-20T11:05:08.542] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-05-20T11:05:08.542] [DEBUG] debug-file - Module 'entry' target 'default' using build option: {
+  "debuggable": true,
+  "copyFrom": "default",
+  "strictMode": {
+    "useNormalizedOHMUrl": true
+  }
+} in this build.
+[2025-05-20T11:05:08.547] [DEBUG] debug-file - Module entry task initialization takes 2 ms 
+[2025-05-20T11:05:08.547] [DEBUG] debug-file - hvigorfile, resolve finished D:\F\hmproject\demo-secverify-for-harmony\entry\hvigorfile.ts
+[2025-05-20T11:05:08.586] [DEBUG] debug-file - hvigorfile, resolve hvigorfile dependencies in 37 ms 
+[2025-05-20T11:05:08.588] [DEBUG] debug-file - project has submodules:entry
+[2025-05-20T11:05:08.590] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2025-05-20T11:05:08.598] [DEBUG] debug-file - load to the disk finished
+[2025-05-20T11:05:08.600] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-05-20T11:05:08.659] [DEBUG] debug-file - Module demo-secverify-for-harmony Collected Dependency: D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\@zztsdk+zztcore@2024.12.11\oh_modules\@zztsdk\zztcore,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\@zztsdk+flyverify@1.1.1\oh_modules\@zztsdk\flyverify,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\@yyz116+jsbn@1.0.2\oh_modules\@yyz116\jsbn,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\@zztsdk+zztcore@2024.12.11\oh_modules\@zztsdk\zztcore\src\main\cpp\types\libzztcore,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\ctaccount@m19m+blp0myxri88zvxbkzptigiy7f21ynq2m+ewzby=\oh_modules\ctaccount,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\cmccssosdk@ezmnfw9qwxoedcx8skz2qomx50mhwm78gbhofxtzlpe=\oh_modules\cmccssosdk,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\unicom_login_harmony_v1.0.3@sg48p7iiy4sy4zckjd7eu9dye0axndgfadbbltjlnua=\oh_modules\unicom_login_harmony_v1.0.3,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\dljson@8y7fmo8pk++iwzbzxufn+xmuihidjjlrg5qftpjx2tg=\oh_modules\dljson
+[2025-05-20T11:05:08.659] [DEBUG] debug-file - Module demo-secverify-for-harmony's total dependency: 8
+[2025-05-20T11:05:08.659] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-05-20T11:05:08.664] [DEBUG] debug-file - Module entry Collected Dependency: D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\@zztsdk+zztcore@2024.12.11\oh_modules\@zztsdk\zztcore,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\@zztsdk+flyverify@1.1.1\oh_modules\@zztsdk\flyverify,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\@yyz116+jsbn@1.0.2\oh_modules\@yyz116\jsbn,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\@zztsdk+zztcore@2024.12.11\oh_modules\@zztsdk\zztcore\src\main\cpp\types\libzztcore,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\ctaccount@m19m+blp0myxri88zvxbkzptigiy7f21ynq2m+ewzby=\oh_modules\ctaccount,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\cmccssosdk@ezmnfw9qwxoedcx8skz2qomx50mhwm78gbhofxtzlpe=\oh_modules\cmccssosdk,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\unicom_login_harmony_v1.0.3@sg48p7iiy4sy4zckjd7eu9dye0axndgfadbbltjlnua=\oh_modules\unicom_login_harmony_v1.0.3,D:\F\hmproject\demo-secverify-for-harmony\oh_modules\.ohpm\dljson@8y7fmo8pk++iwzbzxufn+xmuihidjjlrg5qftpjx2tg=\oh_modules\dljson
+[2025-05-20T11:05:08.664] [DEBUG] debug-file - Module entry's total dependency: 8
+[2025-05-20T11:05:08.668] [DEBUG] debug-file - Configuration phase cost:320 ms 
+[2025-05-20T11:05:08.671] [DEBUG] debug-file - Configuration task cost before running: 394 ms 
+[2025-05-20T11:05:08.671] [DEBUG] debug-file - Executing task :entry:init
+[2025-05-20T11:05:08.672] [DEBUG] debug-file - entry : init cost memory 0.01798248291015625
+[2025-05-20T11:05:08.672] [DEBUG] debug-file - runTaskFromQueue task cost before running: 395 ms 
+[2025-05-20T11:05:08.672] [INFO] debug-file - Finished :entry:init... after 1 ms 
+[2025-05-20T11:05:08.673] [DEBUG] debug-file - Executing task ::init
+[2025-05-20T11:05:08.673] [DEBUG] debug-file - demo-secverify-for-harmony : init cost memory 0.012176513671875
+[2025-05-20T11:05:08.673] [DEBUG] debug-file - runTaskFromQueue task cost before running: 396 ms 
+[2025-05-20T11:05:08.673] [INFO] debug-file - Finished ::init... after 1 ms 
+[2025-05-20T11:05:08.694] [DEBUG] debug-file - Module 'entry' target 'default' using build option: {
+  "debuggable": true,
+  "copyFrom": "default",
+  "strictMode": {
+    "useNormalizedOHMUrl": true
+  }
+} in this build.
+[2025-05-20T11:05:08.703] [DEBUG] debug-file - Module 'entry' target 'debug' using build option: {
+  "debuggable": true,
+  "copyFrom": "default",
+  "strictMode": {
+    "useNormalizedOHMUrl": true
+  }
+} in this build.
+[2025-05-20T11:05:08.711] [DEBUG] debug-file - Module 'entry' target 'ohosTest' using build option: {
+  "debuggable": true,
+  "strictMode": {
+    "useNormalizedOHMUrl": true
+  }
+} in this build.
+[2025-05-20T11:05:08.717] [DEBUG] debug-file - There's no busy workers and idle workers need cleanup.
+[2025-05-20T11:05:08.718] [DEBUG] debug-file - hvigor build process will be closed.
+[2025-05-20T11:05:08.729] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-05-20T11:05:08.730] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-05-20T11:05:08.731] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-05-20T11:05:08.732] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-05-20T11:09:18.402] [DEBUG] debug-file - session manager: set active socket. socketId=o89ef-m5O6ICEuDTAAAF

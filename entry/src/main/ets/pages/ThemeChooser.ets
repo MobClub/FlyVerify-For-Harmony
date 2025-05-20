@@ -1,6 +1,6 @@
-import { ClauseSpan, SetCheckCallback, ThemeConfig} from '@zztsdk/flyverify'
+import { ClauseSpan, FlyVerify, SetCheckCallback, ThemeConfig} from '@zztsdk/flyverify'
 import { Prompt, promptAction } from '@kit.ArkUI'
-import { GenAuthLoginDialog } from 'cmccssosdk'
+
 
 @CustomDialog
 @Component
@@ -8,8 +8,6 @@ export struct ThemeChooser {
   static theme: ThemeConfig = new ThemeConfig()
 
   controller?: CustomDialogController
-  cuctController: CustomDialogController
-  cmController:CustomDialogController
   scroller: Scroller = new Scroller()
   static enableWindowMode = false
   @State enableWindowMode:boolean = ThemeChooser.enableWindowMode
@@ -59,6 +57,8 @@ export struct ThemeChooser {
   @State navTextSize:number = ThemeChooser.theme.getNavTextSize()
   @State navTextColor: string = ThemeChooser.theme.getNavTextColor() as string
   @State navColor:string = ThemeChooser.theme.getNavColor() as string
+  @State clauseNavMarginTop:number = ThemeChooser.theme.getClauseNavMarginTop()
+  @State compatFullScreen:boolean = ThemeChooser.theme.isCompatFullScreen()
   static enableClauseComponent = false
   @State enableClauseComponent:boolean = ThemeChooser.enableClauseComponent
   static enableBackPressedListener = false
@@ -76,7 +76,14 @@ export struct ThemeChooser {
             })
         }.width('100%')
         divider()
-
+        Row(){
+          Text('授权页和隐私协议页面是否需要适配全屏模式\nsetCompatFullScreen').width('60%')
+          Checkbox().select(this.compatFullScreen)
+            .onChange((value: boolean) => {
+              this.compatFullScreen = value
+            })
+        }.width('100%')
+        divider()
         Row() {
           Text('状态栏\nsetSystemBarProperties').width('20%').fontSize(15)
           TextInput({ placeholder: '背景六位RBG' })
@@ -711,6 +718,18 @@ export struct ThemeChooser {
         }.width('100%')
         divider()
 
+        Row() {
+          Text('服务条款标题上面的偏移量\nsetClauseNavMarginTop').width('60%')
+          TextInput({ text: this.clauseNavMarginTop + '', placeholder: '数字' })
+            .width('65')
+            .height('40')
+            .type(InputType.Number)
+            .onChange((value: string) => {
+              this.clauseNavMarginTop = Number.parseInt(value)
+            })
+        }.width('100%')
+        divider()
+
         Row(){
           Text('服务条款标题栏自定义组件\nsetClauseComponent').width('60%')
           Checkbox().select(this.enableClauseComponent)
@@ -814,6 +833,8 @@ export struct ThemeChooser {
         bottom:this.loginBtnMarginBottom
       })
       .setLoginBtnAlignRuleOption(this.loginBtnAlignRuleOption)
+      .setClauseNavMarginTop(this.clauseNavMarginTop)
+      .setCompatFullScreen(this.compatFullScreen)
     if(ThemeChooser.enableCheckedLoginListener){
       ThemeChooser.theme.setCheckedLoginListener({
         onLoginClickStart(context: UIContext) {
@@ -955,27 +976,51 @@ function divider():void{
 @Builder
 function authPageComponent(): void {
   Column() {
-    Text('自定义布局')
-      .fontSize(40)
-      .alignRules({
-        middle: { anchor: '__container__', align: HorizontalAlign.Center },
-        top: { anchor: '__container__', align: VerticalAlign.Top },
-
+    RelativeContainer(){
+      Marquee({
+        start: true,
+        step: 5,
+        loop: -1,
+        fromStart: true,
+        src:'  调用FlyVerify.closeAuthLoginPage()关闭'
       })
+        .fontSize(20)
+        .width(120)
+        .alignRules({
+          left: { anchor: '__container__', align: HorizontalAlign.Start},
+        }).onClick(()=>{
+        FlyVerify.closeAuthLoginPage()
+      })
+      Text('自定义布局')
+        .fontSize(20)
+        .alignRules({
+          middle: { anchor: '__container__', align: HorizontalAlign.Center }
+
+        })
+    }
+    .width('100%')
+    .height(40)
+    .margin({top: 50})
+    .alignRules({
+      top: { anchor: '__container__', align: VerticalAlign.Top },
+    })
+
 
     Button('自定义按钮')
       .alignRules({
         middle: { anchor: '__container__', align: HorizontalAlign.Center },
         top: { anchor: '__container__', align: VerticalAlign.Top },
 
-      }).margin({top:'150%'}).onClick(()=>{
+      })
+      .width('60%')
+      .height(40)
+      .margin({top:'150%'}).onClick(()=>{
       showToast("click")
     })
   }.width('100%')
-  .height('100%')
+  .height(40)
   .alignRules({
     top: { anchor: '__container__', align: VerticalAlign.Top },
-    bottom: { anchor: '__container__', align: VerticalAlign.Bottom },
     left:{ anchor: '__container__', align: HorizontalAlign.Start }
   })
   .id("111")

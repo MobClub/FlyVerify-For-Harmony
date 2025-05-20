@@ -1,11 +1,19 @@
 import { OperationCallback, FlyVerify, VerifyResult , VerifyException} from '@zztsdk/flyverify';
 import { http } from '@kit.NetworkKit';
 import { bundleManager, common } from '@kit.AbilityKit';
-import { ZztSDK } from '@zztsdk/zztcore';
+import {ZztSDK } from '@zztsdk/zztcore';
 import { QueryPhoneBody } from './QueryPhoneBody';
 import { ThemeChooser } from './ThemeChooser';
+import window from '@ohos.window';
 
 let context = getContext(this)
+const statusBarType = window.AvoidAreaType.TYPE_SYSTEM;
+const navBarType = window.AvoidAreaType.TYPE_NAVIGATION_INDICATOR;
+
+interface AvoidArea {
+  topRectHeight: number
+  bottomRectHeight: number
+}
 @Entry
 @Component
 struct Index {
@@ -16,7 +24,32 @@ struct Index {
   isInited = false;
   scroller: Scroller = new Scroller()
   chooserController?: CustomDialogController
+  isFullScreen = false
+  private windowClass = (context as common.UIAbilityContext).windowStage.getMainWindowSync();
+  @State avoidArea: AvoidArea = { topRectHeight: 0, bottomRectHeight: 0 };
+
   async aboutToAppear() {
+    this.setAvoidArea()
+    this.windowClass.on('avoidAreaChange', this.onAvoidAreaChange)
+    this.isFullScreen = this.windowClass.getWindowProperties().isLayoutFullScreen;//获取是否为沉浸式
+    console.log('FlyVerify', 'isFullscreen = ' + this.isFullScreen)
+  }
+
+  setAvoidArea() {
+    // status bar area
+    const statusBarArea = this.windowClass.getWindowAvoidArea(statusBarType);
+    this.avoidArea.topRectHeight = statusBarArea.topRect.height;
+    // navigation bar area
+    const navBarArea = this.windowClass.getWindowAvoidArea(navBarType);
+    this.avoidArea.bottomRectHeight = navBarArea.bottomRect.height;
+  }
+
+  onAvoidAreaChange = (data: window.AvoidAreaOptions) => {
+    if (data.type === statusBarType) {
+      this.avoidArea.topRectHeight = data.area.topRect.height;
+    } else if (data.type === navBarType) {
+      this.avoidArea.bottomRectHeight = data.area.bottomRect.height;
+    }
   }
 
   build() {
@@ -35,6 +68,7 @@ struct Index {
             ZztSDK.init(context, this.appkey, this.secret);
             this.content = "调用ZztSDK.init()"
             this.isInited = true;
+            FlyVerify.setPreVerifyTimeout(8000);
           })
         Row(){
           Button("同意隐私")
@@ -62,10 +96,11 @@ struct Index {
             .padding(15)
             .onClick(() => {
               if(!this.isInited){
+                this.content = "请先初始化！"
                 return;
               }
               let callback: OperationCallback<void> = {
-                onSuccess: () => {
+                onSuccess: (data) => {
                   this.content = new Date() + " onSuccess"
                 },
                 onFailure: (e) => {
@@ -81,9 +116,10 @@ struct Index {
             .padding(15)
             .onClick(() => {
               if(!this.isInited){
+                this.content = "请先初始化！"
                 return;
               }
-              FlyVerify.preVerifySync().then((data)=>{
+              FlyVerify.preVerify().then((data)=>{
                 this.content = new Date() + " onSuccess"
               }).catch((e:VerifyException)=>{
                 this.content = new Date() + " onFailure:" + JSON.stringify(e)
@@ -98,6 +134,7 @@ struct Index {
             .padding(15)
             .onClick(() => {
               if(!this.isInited){
+                this.content = "请先初始化！"
                 return;
               }
               let callback: OperationCallback<VerifyResult> = {
@@ -120,11 +157,12 @@ struct Index {
             .padding(15)
             .onClick(() => {
               if(!this.isInited){
+                this.content = "请先初始化！"
                 return;
               }
               let theme = ThemeChooser.theme
               FlyVerify.setTheme(theme)
-              FlyVerify.verifySync().then((data)=>{
+              FlyVerify.verify().then((data)=>{
                 this.content = new Date() + " onSuccess:" + JSON.stringify(data)
                 this.result = data;
               }).catch((e:VerifyResult)=>{
@@ -156,6 +194,7 @@ struct Index {
           .type(InputType.Number)
           .onChange(value=>{
             if(!this.isInited){
+              this.content = "请先初始化！"
               return;
             }
             let timeout = Number.parseInt(value);
@@ -169,6 +208,7 @@ struct Index {
           .padding(15)
           .onClick(async () => {
             if(!this.isInited){
+              this.content = "请先初始化！"
               return;
             }
             if (this.result === null) {
@@ -210,32 +250,58 @@ struct Index {
           .fontWeight(FontWeight.Bold)
           .margin(10)
           .width('90%')
-      }
+      }.padding({
+        top: this.isFullScreen?this.avoidArea.topRectHeight + 'px':'0',
+        bottom: this.isFullScreen?this.avoidArea.bottomRectHeight + 'px':'0'
+      })
     }
     .width('100%')
   }
 
-
 }
 
 @Builder
-export function authPageComponent(): void {
+function authPageComponent(): void {
   Column() {
-    Text('自定义布局')
-      .fontSize(40)
+    RelativeContainer(){
+      Marquee({
+        start: true,
+        step: 5,
+        loop: -1,
+        fromStart: true,
+        src:'  调用FlyVerify.closeAuthLoginPage()关闭'
+      })
+        .fontSize(20)
+        .width(120)
+        .alignRules({
+          left: { anchor: '__container__', align: HorizontalAlign.Start},
+        }).onClick(()=>{
+        FlyVerify.closeAuthLoginPage()
+      })
+      Text('自定义布局')
+        .fontSize(20)
+        .alignRules({
+          middle: { anchor: '__container__', align: HorizontalAlign.Center }
+
+        })
+    }
+    .width('100%')
+    .height('40%')
+    .alignRules({
+      top: { anchor: '__container__', align: VerticalAlign.Top },
+    })
+
+
+    Button('自定义按钮')
       .alignRules({
         middle: { anchor: '__container__', align: HorizontalAlign.Center },
         top: { anchor: '__container__', align: VerticalAlign.Top },
 
       })
-
-    Button('自定义按钮')
-      .alignRules({
-      middle: { anchor: '__container__', align: HorizontalAlign.Center },
-      top: { anchor: '__container__', align: VerticalAlign.Top },
-
-    }).margin({top:'150%'}).onClick(()=>{
-      console.log("FlyVerify","custom click")
+      .width('60%')
+      .height('40%')
+      .margin({top:'150%'}).onClick(()=>{
+      // showToast("click")
     })
   }.width('100%')
   .height('100%')
@@ -246,5 +312,4 @@ export function authPageComponent(): void {
   })
   .id("111")
 }
-
 

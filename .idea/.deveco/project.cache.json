@@ -1,8 +1,16 @@
 {
-	"BuildOptions":{},
 	"CommonInfo":{
-		"project.ide.version":"5.0.3.700",
-		"current.select.product":"",
+		"crossplatform.projectType":"",
+		"project.ide.version":"5.0.13.100",
+		"current.select.product":"default",
 		"current.select.buildMode":""
+	},
+	"BuildOptions":{
+		"BUNDLE_NAME":"cn.fly.verify.hosnext.demo",
+		"SELECT_BUILD_MODE":"",
+		"BUILD_PATH":{
+			"OUTPUT_PATH":"D:\\F\\hmproject\\demo-secverify-for-harmony\\build\\outputs\\default"
+		},
+		"SELECT_BUILD_PRODUCT":"default"
 	}
 }

@@ -11,11 +11,8 @@
   "main": "",
   "version": "1.0.6",
   "dependencies": {
-    "ctaccount": "file:ThirdPartyLibs/EAccountApiHarmonyOS_V1.0.5.har",
-    "cmccssosdk": "file:ThirdPartyLibs/quick_login_harmony_5.9.7.0.har",
-    "unicom_login_harmony_v1.0.0": "file:ThirdPartyLibs/unicom_login_harmony_v1.0.0AR001B0822.har",
-    "@zztsdk/zztcore": "^2024.10.24",
-    "@zztsdk/flyverify": "^1.0.6"
+    "@zztsdk/zztcore": "^2024.12.11",
+    "@zztsdk/flyverify": "^1.1.1"
   },
   "dynamicDependencies": {}
 }

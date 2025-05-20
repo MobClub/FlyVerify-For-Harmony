@@ -5,7 +5,9 @@
   "name": "entry",
   "description": "Please describe the basic information.",
   "main": "",
-  "version": "1.0.1",
-  "dependencies": {},
+  "version": "1.1.1",
+  "dependencies": {
+
+  },
   "dynamicDependencies": {}
 }

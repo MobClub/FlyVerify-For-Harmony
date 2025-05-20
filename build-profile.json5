@@ -3,6 +3,7 @@
     "products": [
       {
         "name": "default",
+        //TODO配置开发者自己的签名
         "signingConfig": "flySignRelease",
         "compatibleSdkVersion": "5.0.0(12)",
         "buildOption": {
@@ -15,6 +16,7 @@
       },
       {
         "name": "debug",
+        //TODO配置开发者自己的签名
         "signingConfig": "flySignDebug",
         "compatibleSdkVersion": "5.0.0(12)",
         "buildOption": {
@@ -27,7 +29,7 @@
       }
     ],
     "signingConfigs": [
-
+      //TODO配置开发者自己的签名
     ]
   },
   "modules": [
