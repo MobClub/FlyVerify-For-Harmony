@@ -9,10 +9,10 @@
   "name": "flyverify",
   "description": "秒验是一款帮助开发者实现一键验证功能的产品，从根源上降低企业验证成本， 有效提高拉新转化率，降低因验证带来的流失率，3秒完成手机号验证。",
   "main": "",
-  "version": "1.0.6",
+  "version": "1.1.6",
   "dependencies": {
     "@zztsdk/zztcore": "^2024.12.11",
-    "@zztsdk/flyverify": "^1.1.1"
+    "@zztsdk/flyverify": "^1.1.6"
   },
   "dynamicDependencies": {}
 }

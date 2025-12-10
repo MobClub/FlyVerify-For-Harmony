@@ -1,7 +1,7 @@
 import { OperationCallback, FlyVerify, VerifyResult , VerifyException} from '@zztsdk/flyverify';
 import { http } from '@kit.NetworkKit';
 import { bundleManager, common } from '@kit.AbilityKit';
-import {ZztSDK } from '@zztsdk/zztcore';
+import { ZztCustomController, ZztSDK } from '@zztsdk/zztcore';
 import { QueryPhoneBody } from './QueryPhoneBody';
 import { ThemeChooser } from './ThemeChooser';
 import window from '@ohos.window';
@@ -19,7 +19,7 @@ interface AvoidArea {
 struct Index {
   @State content: string = "结果:"
   result: VerifyResult | null = null;
-  appkey = "3a2c2a977d3d2";
+  appkey = "3bb1827de6771";
   secret = "b89d2427a3bc7ad1aea1e1e8c1d36bf3";
   isInited = false;
   scroller: Scroller = new Scroller()
@@ -70,22 +70,30 @@ struct Index {
             this.isInited = true;
             FlyVerify.setPreVerifyTimeout(8000);
           })
-        Row(){
+        Row() {
           Button("同意隐私")
-            .width('45%')
+            .width('30%')
             .margin(5)
             .padding(15)
             .onClick(() => {
               ZztSDK.submitPolicyGrantResult(true);
-              this.content = "隐私状态isForb: " +ZztSDK.isForb()
+              this.content = "隐私状态isForb: " + ZztSDK.isForb()
+            })
+          Button("同意隐私且关闭mcc")
+            .width('30%')
+            .margin(5)
+            .padding(15)
+            .onClick(() => {
+              ZztSDK.submitPolicyGrantResult(true, new MyController());
+              this.content = "隐私状态isForb: " + ZztSDK.isForb()
             })
           Button("不同意隐私")
-            .width('45%')
+            .width('30%')
             .margin(5)
             .padding(15)
             .onClick(() => {
               ZztSDK.submitPolicyGrantResult(false);
-              this.content = "隐私状态isForb: " +ZztSDK.isForb()
+              this.content = "隐私状态isForb: " + ZztSDK.isForb()
             })
         }
 
@@ -148,7 +156,7 @@ struct Index {
               };
               let theme = ThemeChooser.theme
               FlyVerify.setTheme(theme)
-              FlyVerify.verify(callback);
+              FlyVerify.verify(this.getUIContext(), callback);
               console.log("FlyVerify", "verify invoked")
             })
           Button("取号promise")
@@ -162,7 +170,7 @@ struct Index {
               }
               let theme = ThemeChooser.theme
               FlyVerify.setTheme(theme)
-              FlyVerify.verify().then((data)=>{
+              FlyVerify.verify(this.getUIContext()).then((data) => {
                 this.content = new Date() + " onSuccess:" + JSON.stringify(data)
                 this.result = data;
               }).catch((e:VerifyResult)=>{
@@ -243,6 +251,29 @@ struct Index {
               console.log('FlyVerify', this.content)
             }
           })
+        Row() {
+          Text('点击切换自动关闭授权页').width('90%')
+          Checkbox({ name: '自动关闭授权页', group: 'checkboxGroup' })
+            .select(true)
+            .selectedColor(0x39a2db)
+            .shape(CheckBoxShape.ROUNDED_SQUARE)
+            .onChange((value: boolean) => {
+              FlyVerify.setAutoCloseAuthLoginPage(value)
+              this.content = '已切换为' + (value ? '自动' : '手动') + '关闭授权页'
+            })
+        }.width('90%')
+        .margin(10)
+        .padding(15)
+
+        Button("测试")
+          .width('90%')
+          .margin(10)
+          .padding(15)
+          .visibility(Visibility.Visible)
+          .onClick(async () => {
+
+          })
+
 
         Text(this.content)
           .fontSize(20)
@@ -257,59 +288,17 @@ struct Index {
     }
     .width('100%')
   }
-
 }
 
-@Builder
-function authPageComponent(): void {
-  Column() {
-    RelativeContainer(){
-      Marquee({
-        start: true,
-        step: 5,
-        loop: -1,
-        fromStart: true,
-        src:'  调用FlyVerify.closeAuthLoginPage()关闭'
-      })
-        .fontSize(20)
-        .width(120)
-        .alignRules({
-          left: { anchor: '__container__', align: HorizontalAlign.Start},
-        }).onClick(()=>{
-        FlyVerify.closeAuthLoginPage()
-      })
-      Text('自定义布局')
-        .fontSize(20)
-        .alignRules({
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
+class MyController extends ZztCustomController{
+  isModelAvailable(): boolean {
+    return false;
+  }
+  isManufacturerAvailable(): boolean {
+    return false;
+  }
 
-        })
-    }
-    .width('100%')
-    .height('40%')
-    .alignRules({
-      top: { anchor: '__container__', align: VerticalAlign.Top },
-    })
-
-
-    Button('自定义按钮')
-      .alignRules({
-        middle: { anchor: '__container__', align: HorizontalAlign.Center },
-        top: { anchor: '__container__', align: VerticalAlign.Top },
-
-      })
-      .width('60%')
-      .height('40%')
-      .margin({top:'150%'}).onClick(()=>{
-      // showToast("click")
-    })
-  }.width('100%')
-  .height('100%')
-  .alignRules({
-    top: { anchor: '__container__', align: VerticalAlign.Top },
-    bottom: { anchor: '__container__', align: VerticalAlign.Bottom },
-    left:{ anchor: '__container__', align: HorizontalAlign.Start }
-  })
-  .id("111")
+  isSystemInfoAvailable(): boolean {
+    return false;
+  }
 }
-

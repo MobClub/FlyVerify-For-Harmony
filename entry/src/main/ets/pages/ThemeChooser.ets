@@ -31,6 +31,7 @@ export struct ThemeChooser {
   @State loginBtnMarginBottom?:Length = ThemeChooser.theme.getLoginBtnMargin().bottom
   @State loginBtnMarginRight?:Length = ThemeChooser.theme.getLoginBtnMargin().right
   @State loginBtnAlignRuleOption: AlignRuleOption = ThemeChooser.theme.getLoginBtnAlignRuleOption()
+  @State loginBtnBorderRadius:Length | BorderRadiuses | LocalizedBorderRadiuses = ThemeChooser.theme.getLoginBtnBorderRadius()
   static enableUncheckedLoginListener = false
   @State setUncheckedLoginListener:boolean = ThemeChooser.enableUncheckedLoginListener
   static enableCheckedLoginListener = false
@@ -76,6 +77,17 @@ export struct ThemeChooser {
             })
         }.width('100%')
         divider()
+
+        Row(){
+          Text('授权页布局自定义组件\nsetLoginPageComponent').width('60%')
+          Checkbox().select(this.setLoginPageComponent)
+            .onChange((value: boolean) => {
+              this.setLoginPageComponent = value
+              ThemeChooser.enableLoginPageComponent = this.setLoginPageComponent
+            })
+        }.width('100%')
+        divider()
+
         Row(){
           Text('授权页和隐私协议页面是否需要适配全屏模式\nsetCompatFullScreen').width('60%')
           Checkbox().select(this.compatFullScreen)
@@ -353,6 +365,21 @@ export struct ThemeChooser {
         .width('100%')
         divider()
 
+        Row() {
+          Text('登录按钮的圆角大小\nsetLoginBtnBorderRadius').width('60%')
+          TextInput({ text: this.loginBtnBorderRadius + '', placeholder: '数字' })
+            .width('40%')
+            .type(InputType.Number)
+            .onChange((value: string) => {
+              if (value === '') {
+                this.loginBtnBorderRadius = ThemeChooser.theme.getLoginBtnBorderRadius()
+              }else {
+                this.loginBtnBorderRadius = Number.parseInt(value)
+              }
+            })
+        }.width('100%')
+        divider()
+
         Row(){
           Text('登录按钮相对布局偏移规则\nsetLoginBtnAlignRuleOption').width('60%')
           Column(){
@@ -400,16 +427,6 @@ export struct ThemeChooser {
             .onChange((value: boolean) => {
               this.setUncheckedLoginListener = value
               ThemeChooser.enableUncheckedLoginListener = this.setUncheckedLoginListener
-            })
-        }.width('100%')
-        divider()
-
-        Row(){
-          Text('授权页布局自定义组件\nsetLoginPageComponent').width('60%')
-          Checkbox().select(this.setLoginPageComponent)
-            .onChange((value: boolean) => {
-              this.setLoginPageComponent = value
-              ThemeChooser.enableLoginPageComponent = this.setLoginPageComponent
             })
         }.width('100%')
         divider()
@@ -826,6 +843,7 @@ export struct ThemeChooser {
       .setLoginBtnTextColor(this.loginBtnTextColor)
       .setLoginBtnWidth(this.loginBtnWidth)
       .setLoginBtnHeight(this.loginBtnHeight)
+      .setLoginBtnBorderRadius(this.loginBtnBorderRadius)
       .setLoginBtnMargin({
         top:this.loginBtnMarginTop,
         left:this.loginBtnMarginLeft,
@@ -941,9 +959,8 @@ export struct ThemeChooser {
     }
     if(ThemeChooser.enableWindowMode) {
       ThemeChooser.theme.useDialogMode({
-        alignment: DialogAlignment.Center,
-        width: '100%',
-        height: '80%'
+        width: '90%',
+        height: '60%'
       })
     }else{
       ThemeChooser.theme.useDialogMode(undefined)
@@ -991,12 +1008,12 @@ function authPageComponent(): void {
         }).onClick(()=>{
         FlyVerify.closeAuthLoginPage()
       })
-      Text('自定义布局')
-        .fontSize(20)
-        .alignRules({
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
-
-        })
+      // Text('自定义布局')
+      //   .fontSize(20)
+      //   .alignRules({
+      //     middle: { anchor: '__container__', align: HorizontalAlign.Center }
+      //
+      //   })
     }
     .width('100%')
     .height(40)
@@ -1006,19 +1023,21 @@ function authPageComponent(): void {
     })
 
 
-    Button('自定义按钮')
-      .alignRules({
-        middle: { anchor: '__container__', align: HorizontalAlign.Center },
-        top: { anchor: '__container__', align: VerticalAlign.Top },
-
-      })
-      .width('60%')
-      .height(40)
-      .margin({top:'150%'}).onClick(()=>{
-      showToast("click")
-    })
+    // Button('自定义按钮')
+    //   .alignRules({
+    //     middle: { anchor: '__container__', align: HorizontalAlign.Center },
+    //     top: { anchor: '__container__', align: VerticalAlign.Top },
+    //
+    //   })
+    //   .width('60%')
+    //   .height(40)
+    //   .margin({top:'150%'}).onClick(()=>{
+    //   showToast("click")
+    // })
   }.width('100%')
-  .height(40)
+  .height('100%')
+  .borderRadius(10)
+  .backgroundColor('#ADD8E6')
   .alignRules({
     top: { anchor: '__container__', align: VerticalAlign.Top },
     left:{ anchor: '__container__', align: HorizontalAlign.Start }
